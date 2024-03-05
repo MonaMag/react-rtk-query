@@ -1,0 +1,24 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "JS news",
+      "subtitle": "Что нового в JS за 2024 год?"
+    },
+    {
+      "id": 2,
+      "title": "Python news",
+      "subtitle": "Что нового в Python за 2024 год?"
+    },
+    {
+      "id": 3,
+      "title": "Kotlin news",
+      "subtitle": "Что нового в Kotlin за 2024 год?"
+    },
+    {
+      "id": 4,
+      "title": "TypeScript news",
+      "subtitle": "Что нового в TypeScript за 2024 год?"
+    }
+  ]
+}
