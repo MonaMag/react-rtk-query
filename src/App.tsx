@@ -10,7 +10,7 @@ function App() {
     return <p>Ошибка при загрузке статей</p>;
   }
   return (
-    <div>
+    <div className={"App"}>
       <ArticlesList articles={data} isLoading={isLoading} />
     </div>
   );

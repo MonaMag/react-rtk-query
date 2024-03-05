@@ -12,9 +12,17 @@ export const articlesApi = createApi({
       query: () => ({
         url: `articles`,
       }),
-      providesTags: (result) => ["Articles"],
+      providesTags: ["Articles"],
+    }),
+    createArticle: builder.mutation<IArticle, IArticle>({
+      query: (article) => ({
+        url: `articles`,
+        method: "POST",
+        body: article,
+      }),
+      invalidatesTags: ["Articles"],
     }),
   }),
 });
 
-export const { useGetArticlesQuery } = articlesApi;
+export const { useGetArticlesQuery, useCreateArticleMutation } = articlesApi;
