@@ -10,9 +10,12 @@ export const ArticleItem = ({ article }: ArticleItemProps) => {
   return (
     <div className={cls.content}>
       <div className={cls.card}>
-        <h1>{article.title}</h1>
+        <h2>{article.title}</h2>
         <p>{article.subtitle}</p>
-        <button>Удалить</button>
+        <div className={cls.actionBtn}>
+          <button className={cls.button}>Удалить</button>
+          <button className={cls.button}>Изменить</button>
+        </div>
       </div>
     </div>
   );

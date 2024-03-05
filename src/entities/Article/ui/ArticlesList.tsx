@@ -5,11 +5,17 @@ import { IArticle } from "../model/types/types";
 
 interface ArticlesListProps {
   articles: IArticle[];
+  isLoading: boolean;
 }
 
 export const ArticlesList: FC<ArticlesListProps> = ({
   articles,
+  isLoading,
 }: ArticlesListProps) => {
+  if (!isLoading && !articles.length) {
+    return <div>Статьи не найдены</div>;
+  }
+
   return (
     <div className={cls.articleList}>
       {articles &&
