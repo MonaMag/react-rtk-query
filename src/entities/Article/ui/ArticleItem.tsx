@@ -4,9 +4,10 @@ import cls from "./ArticlesList.module.css";
 
 interface ArticleItemProps {
   article: IArticle;
+  update: (article: IArticle) => void;
 }
 
-export const ArticleItem = ({ article }: ArticleItemProps) => {
+export const ArticleItem = ({ article, update }: ArticleItemProps) => {
   return (
     <div className={cls.content}>
       <div className={cls.card}>

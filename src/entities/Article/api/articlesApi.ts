@@ -22,7 +22,19 @@ export const articlesApi = createApi({
       }),
       invalidatesTags: ["Articles"],
     }),
+    updateArticle: builder.mutation<IArticle, IArticle>({
+      query: (article) => ({
+        url: `articles/${article.id}`,
+        method: "PUT",
+        body: article,
+      }),
+      invalidatesTags: ["Articles"],
+    }),
   }),
 });
 
-export const { useGetArticlesQuery, useCreateArticleMutation } = articlesApi;
+export const {
+  useGetArticlesQuery,
+  useCreateArticleMutation,
+  useUpdateArticleMutation,
+} = articlesApi;
