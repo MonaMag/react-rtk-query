@@ -1,57 +1,34 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import cls from "./ArticlesList.module.css";
 import { ArticleItem } from "./ArticleItem";
 import { IArticle } from "../model/types/types";
-import {
-  useCreateArticleMutation,
-  useRemoveArticleMutation,
-  useUpdateArticleMutation,
-} from "../api/articlesApi";
 
 interface ArticlesListProps {
   articles: IArticle[];
   isLoading: boolean;
+  update: (article: IArticle) => void;
+  remove: (article: IArticle) => void;
 }
 
 export const ArticlesList: FC<ArticlesListProps> = ({
   articles,
   isLoading,
+  update,
+  remove,
 }: ArticlesListProps) => {
-  const [title, setTitle] = useState("");
-
-  const [createArticle, {}] = useCreateArticleMutation();
-  const [updateArticle, {}] = useUpdateArticleMutation();
-  const [removeArticle, {}] = useRemoveArticleMutation();
-
   if (!isLoading && !articles.length) {
     return <div>Статьи не найдены</div>;
   }
 
-  const handleCreatePost = async () => {
-    await createArticle({
-      title,
-      subtitle: `Что нового в ${title} в 2024 году`,
-    } as IArticle);
-  };
-
   return (
     <div>
-      <div className={cls.header}>
-        <input
-          type="text"
-          value={title}
-          className={cls.input}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <button onClick={handleCreatePost}>Добавить статью</button>
-      </div>
       <div className={cls.articleList}>
         {articles.map((item) => (
           <ArticleItem
             article={item}
             key={item.id}
-            update={updateArticle}
-            remove={removeArticle}
+            update={update}
+            remove={remove}
           />
         ))}
       </div>

@@ -1,18 +1,19 @@
 import React from "react";
-import { ArticlesList } from "./entities/Article/ui/ArticlesList";
-import { useGetArticlesQuery } from "./entities/Article/api/articlesApi";
 import "./App.css";
+import { ArticlesPage } from "./pages/ArticlesPage";
+import { CreateArticleModal } from "./features/createArticle/CreateArticl";
 
 function App() {
-  const { data = [], isLoading, error } = useGetArticlesQuery();
+  /* const { data = [], isLoading, error } = useGetArticlesQuery();
 
   console.log("data", data);
   if (error) {
     return <p>Ошибка при загрузке статей</p>;
-  }
+  }*/
   return (
     <div className={"App"}>
-      <ArticlesList articles={data} isLoading={isLoading} />
+      <CreateArticleModal />
+      <ArticlesPage />
     </div>
   );
 }
