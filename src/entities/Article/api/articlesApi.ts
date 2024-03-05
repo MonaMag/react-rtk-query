@@ -30,6 +30,13 @@ export const articlesApi = createApi({
       }),
       invalidatesTags: ["Articles"],
     }),
+    removeArticle: builder.mutation<IArticle, IArticle>({
+      query: (article) => ({
+        url: `articles/${article.id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["Articles"],
+    }),
   }),
 });
 
@@ -37,4 +44,5 @@ export const {
   useGetArticlesQuery,
   useCreateArticleMutation,
   useUpdateArticleMutation,
+  useRemoveArticleMutation,
 } = articlesApi;

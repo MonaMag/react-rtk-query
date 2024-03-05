@@ -4,6 +4,7 @@ import { ArticleItem } from "./ArticleItem";
 import { IArticle } from "../model/types/types";
 import {
   useCreateArticleMutation,
+  useRemoveArticleMutation,
   useUpdateArticleMutation,
 } from "../api/articlesApi";
 
@@ -20,6 +21,7 @@ export const ArticlesList: FC<ArticlesListProps> = ({
 
   const [createArticle, {}] = useCreateArticleMutation();
   const [updateArticle, {}] = useUpdateArticleMutation();
+  const [removeArticle, {}] = useRemoveArticleMutation();
 
   if (!isLoading && !articles.length) {
     return <div>Статьи не найдены</div>;
@@ -44,10 +46,14 @@ export const ArticlesList: FC<ArticlesListProps> = ({
         <button onClick={handleCreatePost}>Добавить статью</button>
       </div>
       <div className={cls.articleList}>
-        {articles &&
-          articles.map((item) => (
-            <ArticleItem article={item} key={item.id} update={updateArticle} />
-          ))}
+        {articles.map((item) => (
+          <ArticleItem
+            article={item}
+            key={item.id}
+            update={updateArticle}
+            remove={removeArticle}
+          />
+        ))}
       </div>
     </div>
   );

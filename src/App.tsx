@@ -6,6 +6,7 @@ import "./App.css";
 function App() {
   const { data = [], isLoading, error } = useGetArticlesQuery();
 
+  console.log("data", data);
   if (error) {
     return <p>Ошибка при загрузке статей</p>;
   }
