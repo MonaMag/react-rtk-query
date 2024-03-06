@@ -9,11 +9,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `rtk query`
 
-Реализованы сами методы удаления и создания постов с опомщью rtk query, в postService описаны ключевые эндпоинты и необходимые параметры для запросов к http://localhost:5000/(база данных в файле db.json, реализована с помощью [JSON server](https://www.npmjs.com/package/json-server/v/0.15.0)), автоматически генерируются хуки для использования сервиса.
+Реализованы сами методы удаления и создания постов с опомщью rtk query, в articleApi описаны ключевые эндпоинты и необходимые параметры для запросов к http://localhost:5000/(база данных в файле db.json, реализована с помощью [JSON server](https://www.npmjs.com/package/json-server/v/0.15.0)), автоматически генерируются хуки для использования сервиса.
 
 ### `TypeScript`
 
 Есть необходимая типизация при запросах и передаче данных
+
+# Getting Started
+
+### `npm install`
+
+### `npm i json-server`
+
+### `json-server -w db.json --port 5000`
+(запуск сервера бд на отличном от фронта порту, в папке с файлом бд)
+
+### `npm start`
+
 
 ## Available Scripts
 
