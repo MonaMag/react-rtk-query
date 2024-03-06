@@ -14,10 +14,10 @@ interface ArticlesPageProps {
 }
 
 export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
-  const { data = [], isLoading, error } = useGetArticlesQuery();
-
   const [title, setTitle] = useState("");
+  const [limit, setLimit] = useState("");
 
+  const { data = [], isLoading, error } = useGetArticlesQuery(limit);
   const [createArticle, {}] = useCreateArticleMutation();
   const [updateArticle, {}] = useUpdateArticleMutation();
   const [removeArticle, {}] = useRemoveArticleMutation();
@@ -43,6 +43,14 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
           onChange={(e) => setTitle(e.target.value)}
         />
         <button onClick={handleCreatePost}>Добавить статью</button>
+      </div>
+      <div>
+        <select value={limit} onChange={(e) => setLimit(e.target.value)}>
+          <option value="">all</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
       </div>
       <ArticlesList
         articles={data}

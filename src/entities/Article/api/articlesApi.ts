@@ -8,9 +8,12 @@ export const articlesApi = createApi({
     baseUrl: "http://localhost:5000/",
   }),
   endpoints: (builder) => ({
-    getArticles: builder.query<IArticle[], void>({
-      query: () => ({
+    getArticles: builder.query<IArticle[], string>({
+      query: (limit = "") => ({
         url: `articles`,
+        params: {
+          _limit: limit,
+        },
       }),
       providesTags: ["Articles"],
     }),
