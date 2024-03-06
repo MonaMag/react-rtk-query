@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import {
   useGetArticlesQuery,
   useRemoveArticleMutation,
@@ -12,11 +12,9 @@ interface ArticlesPageProps {
 }
 
 export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
-  const { data = [], isLoading, error } = useGetArticlesQuery();
+  const [limit, setLimit] = useState("");
 
-  //const [title, setTitle] = useState("");
-
-  //const [createArticle, {}] = useCreateArticleMutation();
+  const { data = [], isLoading, error } = useGetArticlesQuery(limit);
   const [updateArticle, {}] = useUpdateArticleMutation();
   const [removeArticle, {}] = useRemoveArticleMutation();
 
@@ -36,6 +34,13 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
       <div>
         <CreateArticleModal />
       </div>
+        <select value={limit} onChange={(e) => setLimit(e.target.value)}>
+          <option value="">all</option>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
       {/*   <div className={cls.header}>
         <input
           type="text"
@@ -45,6 +50,7 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
         />
         <button onClick={handleCreateArticle}>Добавить статью</button>
       </div>*/}
+        {/*<button onClick={handleCreateArticle}>Добавить статью</button>*/}
       <ArticlesList
         articles={data}
         isLoading={isLoading}
