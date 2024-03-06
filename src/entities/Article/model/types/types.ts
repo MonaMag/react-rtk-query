@@ -5,7 +5,7 @@ export interface IComment {
 }
 
 export interface IArticle {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
   paragraph: string;

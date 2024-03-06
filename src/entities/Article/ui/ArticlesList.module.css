@@ -1,8 +1,10 @@
 .articleList {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
 }
 
 .header {
@@ -14,7 +16,6 @@
 }
 
 .content {
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,9 +23,8 @@
 }
 
 .card {
-   width: 250px;
-   margin: 10px;
-    padding: 10px;
+   width: 600px;
+   padding: 10px;
    background-color: antiquewhite;
  }
 

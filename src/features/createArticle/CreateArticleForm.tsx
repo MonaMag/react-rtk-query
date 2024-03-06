@@ -2,13 +2,17 @@ import React, { FC, memo } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import cls from "./CreateArticleForm.module.css";
+import { useCreateArticleMutation } from "../../entities/Article/api/articlesApi";
+import { IArticle } from "../../entities/Article/model/types/types";
 
 export interface CreateArticleFormProps {
   className?: string;
   onClose: () => void;
 }
 
-const CreateArticleForm: FC<CreateArticleFormProps> = memo(() => {
+const CreateArticleForm: FC<CreateArticleFormProps> = memo(({ onClose }) => {
+  const [createArticle, {}] = useCreateArticleMutation();
+
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -22,14 +26,16 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(() => {
         .required("Введите название статьи"),
       subtitle: Yup.string()
         .min(20, "Количество символов не менее 20")
-        .max(40, "Количество символов не должно превышать 40"),
+        .max(100, "Количество символов не должно превышать 100"),
       paragraph: Yup.string()
         .min(20, "Количество символов не менее 20")
         .required("Ведите текст статьи"),
       createdArticle: Yup.date().required("Введите дату создания статьи"),
     }),
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      createArticle(values as IArticle);
+      onClose();
+      //alert(JSON.stringify(values, null, 2));
     },
   });
 

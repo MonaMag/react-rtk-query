@@ -1,8 +1,8 @@
 {
   "articles": [
     {
-      "id": 1,
-      "title": "JS news",
+      "id": "1",
+      "title": "JavaScript",
       "subtitle": "Что нового в JS за 2024 год?",
       "paragraph": "Сейчас в Интернете используется довольно много различных технологий. Данная статья посвящена описанию основных особенностей, преимуществ и недостатков популярных технологий JavaScript/Java, HTML, CSS.",
       "createdArticle": "5.03.2024",
@@ -20,7 +20,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Python news",
       "subtitle": "Что нового в Python за 2024 год?",
       "paragraph": "Сейчас в Интернете используется довольно много различных технологий. Данная статья посвящена описанию основных особенностей, преимуществ и недостатков популярных технологий",
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Kotlin news",
       "subtitle": "Что нового в Kotlin за 2024 год?",
       "paragraph": "Сейчас в Интернете используется довольно много различных технологий. Данная статья посвящена описанию основных особенностей, преимуществ и недостатков популярных технологий",
@@ -58,7 +58,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "TypeScript news",
       "subtitle": "Что нового в TypeScript за 2024 год?",
       "paragraph": "Сейчас в Интернете используется довольно много различных технологий. Данная статья посвящена описанию основных особенностей, преимуществ и недостатков популярных технологий",
@@ -154,7 +154,7 @@
     },
     {
       "id": "eadf",
-      "title": "Redux",
+      "title": "React",
       "subtitle": "Что нового в 222 в 2024 году",
       "paragraph": "Сейчас в Интернете используется довольно много различных технологий. Данная статья посвящена описанию основных особенностей, преимуществ и недостатков популярных технологий",
       "createdArticle": "5.03.2024",
@@ -170,6 +170,13 @@
           "date": "07.03.2024"
         }
       ]
+    },
+    {
+      "id": "ee4c",
+      "title": "React with Redux",
+      "subtitle": "How use React with Redux in 2024 years",
+      "paragraph": "The recommended way to start new apps with React and Redux Toolkit is by using our official Redux Toolkit + TS template for Vite, or by creating a new Next.js project using Next's with-redux template.\n\nBoth of these already have Redux Toolkit and React-Redux configured appropriately for that build tool, and come with a small example app that demonstrates how to use several of Redux Toolkit's features.",
+      "createdArticle": "2024-03-06"
     }
   ]
 }

@@ -29,6 +29,7 @@ export const ArticleItem: FC<ArticleItemProps> = ({
       <div className={cls.card}>
         <h2>{article.title}</h2>
         <p>{article.subtitle}</p>
+        <p>{article.paragraph}</p>
         <div className={cls.actionBtn}>
           <button className={cls.button} onClick={handleRemoveArticle}>
             Удалить
