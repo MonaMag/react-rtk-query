@@ -38,6 +38,7 @@ export const ArticleItem: FC<ArticleItemProps> = ({
             Изменить
           </button>
         </div>
+        <div>{article.createdArticle}</div>
       </div>
     </div>
   );

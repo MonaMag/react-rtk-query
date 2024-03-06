@@ -18,7 +18,7 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(({ onClose }) => {
       title: "",
       subtitle: "",
       paragraph: "",
-      createdArticle: "",
+      createdArticle: new Date().toLocaleString(),
     },
     validationSchema: Yup.object({
       title: Yup.string()
@@ -30,7 +30,7 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(({ onClose }) => {
       paragraph: Yup.string()
         .min(20, "Количество символов не менее 20")
         .required("Ведите текст статьи"),
-      createdArticle: Yup.date().required("Введите дату создания статьи"),
+      /*createdArticle: Yup.string().required("Введите дату создания статьи"),*/
     }),
     onSubmit: (values) => {
       createArticle(values as IArticle);
@@ -90,9 +90,9 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(({ onClose }) => {
             onBlur={formik.handleBlur}
             value={formik.values.createdArticle}
           />
-          {formik.touched.createdArticle && formik.errors.createdArticle ? (
+          {/*     {formik.touched.createdArticle && formik.errors.createdArticle ? (
             <div>{formik.errors.createdArticle}</div>
-          ) : null}
+          ) : null}*/}
           <button type="submit" className={cls.button}>
             Submit
           </button>

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
-import cls from "./ArticlesList.module.css";
 import { ArticleItem } from "./ArticleItem";
 import { IArticle } from "../model/types/types";
+import cls from "./ArticlesList.module.css";
 
 interface ArticlesListProps {
   articles: IArticle[];
