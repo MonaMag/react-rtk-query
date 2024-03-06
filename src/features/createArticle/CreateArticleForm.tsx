@@ -12,15 +12,21 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(() => {
   const formik = useFormik({
     initialValues: {
       title: "",
+      subtitle: "",
       paragraph: "",
+      createdArticle: "",
     },
     validationSchema: Yup.object({
       title: Yup.string()
         .max(20, "Количество символов не должно превышать 20")
         .required("Введите название статьи"),
+      subtitle: Yup.string()
+        .min(20, "Количество символов не менее 20")
+        .max(40, "Количество символов не должно превышать 40"),
       paragraph: Yup.string()
         .min(20, "Количество символов не менее 20")
         .required("Ведите текст статьи"),
+      createdArticle: Yup.date().required("Введите дату создания статьи"),
     }),
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
@@ -44,7 +50,20 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(() => {
             <div>{formik.errors.title}</div>
           ) : null}
 
-          <label htmlFor="article">Статья</label>
+          <label htmlFor="title">Краткое описание</label>
+          <input
+            id="subtitle"
+            name="subtitle"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.subtitle}
+          />
+          {formik.touched.subtitle && formik.errors.subtitle ? (
+            <div>{formik.errors.subtitle}</div>
+          ) : null}
+
+          <label htmlFor="paragraph">Статья</label>
           <textarea
             id="paragraph"
             name="paragraph"
@@ -54,6 +73,19 @@ const CreateArticleForm: FC<CreateArticleFormProps> = memo(() => {
           />
           {formik.touched.paragraph && formik.errors.paragraph ? (
             <div>{formik.errors.paragraph}</div>
+          ) : null}
+
+          <label htmlFor="createdArticle">Дата создания</label>
+          <input
+            id="createdArticle"
+            name="createdArticle"
+            type={"date"}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.createdArticle}
+          />
+          {formik.touched.createdArticle && formik.errors.createdArticle ? (
+            <div>{formik.errors.createdArticle}</div>
           ) : null}
           <button type="submit" className={cls.button}>
             Submit
