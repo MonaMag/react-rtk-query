@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { Modal } from "../../shared/Modal/Modal";
 import { classNames } from "../../shared/classNames/classNames";
+import CreateArticleForm from "./CreateArticleForm";
 
-interface UserModalProps {
+interface CreateArticleModalProps {
   className?: string;
 }
 
-export const CreateArticleModal = ({ className }: UserModalProps) => {
+export const CreateArticleModal = ({ className }: CreateArticleModalProps) => {
   const [isCreateModal, setIsCreateModal] = useState(false);
 
   const onShowModal = () => {
@@ -26,7 +27,7 @@ export const CreateArticleModal = ({ className }: UserModalProps) => {
           isOpen={isCreateModal}
           onClose={onCloseModal}
         >
-          <div>Modal</div> {/* <CreateArticleForm onClose={onCloseModal} />*/}
+          <CreateArticleForm onClose={onCloseModal} />
         </Modal>
       )}
     </>

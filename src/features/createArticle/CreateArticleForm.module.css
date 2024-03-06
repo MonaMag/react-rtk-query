@@ -1,0 +1,19 @@
+.wrapper {
+    display: flex;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+
+.button {
+    margin-top: 20px;
+}

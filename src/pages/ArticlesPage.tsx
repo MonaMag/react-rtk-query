@@ -8,6 +8,7 @@ import {
 import { ArticlesList } from "../entities/Article/ui/ArticlesList";
 import { IArticle } from "../entities/Article/model/types/types";
 import cls from "../entities/Article/ui/ArticlesList.module.css";
+import { CreateArticleModal } from "../features/createArticle/CreateArticlModal";
 
 interface ArticlesPageProps {
   className?: string;
@@ -35,6 +36,7 @@ export const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
   return (
     <div>
+      <CreateArticleModal />
       <div className={cls.header}>
         <input
           type="text"
